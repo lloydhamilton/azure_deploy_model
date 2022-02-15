@@ -1,6 +1,6 @@
 # Serverless Deployment of Machine Learning Models on Azure Functions
 
-![GitHub](https://img.shields.io/github/license/lloydhamilton/azure_deploy_model?logo=GitHub&style=plastic) ![](https://img.shields.io/badge/-Docker-blue?style=plastic&logo=Docker) ![](https://img.shields.io/badge/-AzureFunctions-blue?style=plastic&logo=AzureFunctions)
+![GitHub](https://img.shields.io/github/license/lloydhamilton/azure_deploy_model?logo=GitHub&style=plastic) ![](https://img.shields.io/badge/-Docker-blue?style=plastic&logo=Docker) ![](https://img.shields.io/badge/-AzureFunctions-blue?style=plastic&logo=AzureFunctions) ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/lloydhamilton/azure_deploy_model/Build-Deploy)
 
 <hr>
 
