@@ -1,0 +1,22 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "registrylogin": {
+            "reference": {
+                "keyVault": {
+                "id": "/subscriptions/13f39713-769a-4ca5-a42e-794fa414e313/resourceGroups/mygroup/providers/Microsoft.KeyVault/vaults/lhregistry1-vault"
+                },
+                "secretName": "lhregistry-pull-usr"
+            }
+        },
+        "registrypwd": {
+            "reference": {
+            "keyVault": {
+                "id": "/subscriptions/13f39713-769a-4ca5-a42e-794fa414e313/resourceGroups/mygroup/providers/Microsoft.KeyVault/vaults/lhregistry1-vault"
+            },
+            "secretName": "lhregistry-pull-pwd"
+            }
+        }
+    }
+  }

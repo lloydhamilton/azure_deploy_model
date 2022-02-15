@@ -1,0 +1,41 @@
+name: Build a Docker image and Push it to ACR
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+env:
+  IMAGE_NAME: workflow:${{ github.sha }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: azure/docker-login@v1
+        with:
+          login-server: ${{ secrets.ACR_REPO }}
+          username: ${{ secrets.ACR_USERNAME }}
+          password: ${{ secrets.ACR_PASSWORD }}
+
+      - run: |
+          docker build . -t ${{ secrets.ACR_REPO }}/$IMAGE_NAME
+          docker push ${{ secrets.ACR_REPO }}/$IMAGE_NAME
+
+  azure-deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+        - uses: actions/checkout@main
+        - uses: azure/login@v1
+          with:
+            creds: ${{ secrets.AZ_CREDENTIALS }}
+        - name: Run ARM deploy
+          uses: azure/arm-deploy@v1
+          with:
+            subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
+            resourceGroupName: ${{ secrets.AZURE_RG }}
+            template: ./deployment_template.json
+            parameters: ./parameters.json image=${{ env.IMAGE_NAME }}
+        - run: echo $IMAGE_NAME

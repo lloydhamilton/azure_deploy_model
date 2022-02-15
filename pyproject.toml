@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "azure_test"
+version = "0.1.0"
+description = ""
+authors = ["Lloyd Hamilton <lloydhamilton1991@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+azure-functions = "^1.8.0"
+requests = "^2.27.1"
+numpy = "^1.21.5"
+scikit-learn = "^1.0.2"
+joblib = "^1.1.0"
+
+[tool.poetry.dev-dependencies]
+ipykernel = "^6.9.1"
+jupyter = "^1.0.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
