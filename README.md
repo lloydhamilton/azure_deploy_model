@@ -1,6 +1,6 @@
 # Serverless Deployment of Machine Learning Models on AWS Lambda
 
-![GitHub](https://img.shields.io/github/license/lloydhamilton/aws_lambda_no_authoriser?logo=GitHub&style=plastic) ![GitHub Repo stars](https://img.shields.io/github/stars/lloydhamilton/aws_lambda_no_authoriser?logo=GitHub&style=plastic) ![](https://img.shields.io/badge/-Docker-blue?style=plastic&logo=Docker) ![](https://img.shields.io/badge/-AWS-orange?style=plastic&logo=Amazon-AWS)
+![GitHub](https://img.shields.io/github/license/lloydhamilton/azure_deploy_model?logo=GitHub&style=plastic) ![](https://img.shields.io/badge/-Docker-blue?style=plastic&logo=Docker) ![](https://img.shields.io/badge/-AzureFunctions-blue?style=plastic&logo=AzureFunctions)
 
 <hr>
 
