@@ -43,6 +43,6 @@ jobs:
           uses: azure/arm-deploy@v1
           with:
             subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
-            resourceGroupName: azurearmfunctiondocker2
+            resourceGroupName: azurearmfunctiondocker
             template: ./deployment_template.json
             parameters: ./parameters.json image=workflow:e51579a1b13862b05a5c6a6c83ae98a803604287
