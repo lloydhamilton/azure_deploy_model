@@ -37,11 +37,12 @@ jobs:
         - uses: azure/login@v1
           with:
             creds: ${{ secrets.AZ_CREDENTIALS }}
+        - name: show image name
+          run: echo $IMAGE_NAME
         - name: Run ARM deploy
           uses: azure/arm-deploy@v1
           with:
             subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
-            resourceGroupName: ${{ secrets.AZURE_RG }}
+            resourceGroupName: azurearmfunctiondocker2
             template: ./deployment_template.json
             parameters: ./parameters.json image=${{ env.IMAGE_NAME }}
-        - run: echo $IMAGE_NAME
