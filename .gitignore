@@ -44,3 +44,5 @@ __pycache__/
 
 .vscode
 secrets.json
+permission-notes.md
+role_definition.json
