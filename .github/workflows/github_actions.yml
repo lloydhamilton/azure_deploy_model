@@ -15,22 +15,22 @@ env:
   IMAGE_NAME: workflow:${{ github.sha }}
 
 jobs:
-  # build:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v2
-  #     - uses: azure/docker-login@v1
-  #       with:
-  #         login-server: ${{ secrets.ACR_REPO }}
-  #         username: ${{ secrets.ACR_USERNAME }}
-  #         password: ${{ secrets.ACR_PASSWORD }}
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: azure/docker-login@v1
+        with:
+          login-server: ${{ secrets.ACR_REPO }}
+          username: ${{ secrets.ACR_USERNAME }}
+          password: ${{ secrets.ACR_PASSWORD }}
 
-  #     - run: |
-  #         docker build . -t ${{ secrets.ACR_REPO }}/$IMAGE_NAME
-  #         docker push ${{ secrets.ACR_REPO }}/$IMAGE_NAME
+      - run: |
+          docker build . -t ${{ secrets.ACR_REPO }}/$IMAGE_NAME
+          docker push ${{ secrets.ACR_REPO }}/$IMAGE_NAME
 
   azure-deploy:
-    # needs: build
+    needs: build
     runs-on: ubuntu-latest
     steps:
         - uses: actions/checkout@main
@@ -43,6 +43,6 @@ jobs:
           uses: azure/arm-deploy@v1
           with:
             subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
-            resourceGroupName: azurearmfunctiondocker
+            resourceGroupName: azurearmfunctiondocker2
             template: ./deployment_template.json
-            parameters: ./parameters.json image=workflow:e51579a1b13862b05a5c6a6c83ae98a803604287
+            parameters: ./parameters.json image=${{ env.IMAGE_NAME }}
