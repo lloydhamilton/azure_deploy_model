@@ -36,7 +36,7 @@ jobs:
         - uses: actions/checkout@main
         - uses: azure/login@v1
           with:
-            creds: ${{ secrets.AZ_CREDENTIALS }}
+            creds: ${{ secrets.AZ_GUEST_CRED }}
         - name: show image name
           run: echo $IMAGE_NAME
         - name: Run ARM deploy
